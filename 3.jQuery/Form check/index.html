@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check form data</title>
+    <script type="text/javascript" src="jquery-3.4.1.slim.js"></script>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, sans-serif;
+            font-size: 200%;
+        }
+
+        label {
+            font-weight: bold;
+            position: relative;
+            top: 7px;
+            width: 330px;
+            float: left;
+        }
+
+        input {
+            height: 40px;
+            width: 320px;
+            padding: 5px 5px 8px 5px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            font-size: 25px;
+        }
+
+        #page-container {
+            width: 670px;
+            margin: 0 auto ;
+        }
+
+        .element-container {
+            margin-bottom: 10px;
+        }
+
+        #submitButton {
+            margin-left: 200px;
+        }
+
+        #errors {
+            color: red;
+            font-size: 80%;
+        }
+
+        #success {
+            text-align: center;
+            color: green;
+            border-radius: 5px;
+            background-color: lavender;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-container">
+        <div id="success">
+            Your do it! Congratulations!
+        </div>
+        <div class="element-container">
+            <label for="email">Ваш e-mail:</label>
+            <input type="text" name="email" id="email" placeholder="yourmail@domain.com">
+        </div>
+
+        <div class="element-container">
+            <label for="phone">Ваш телефон:</label>
+            <input type="text" name="phone" id="phone" placeholder="+375112223344">
+        </div>
+
+        <div class="element-container">
+            <label for="password">Пароль:</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div class="element-container">
+            <label for="passwordConfirm">Повторите пароль:</label>
+            <input type="password" name="passwordConfirm" id="passwordConfirm">
+        </div>
+
+        <div class="element-container">
+            <input type="submit" id="submitButton" value="Отправить">
+        </div>
+
+        <p id="errors"></p>
+    </div>
+
+    <script type="text/javascript">
+
+        function isEmail(email) {
+            let reg = /^([a-zA-Z0-9_.+-])+\@+(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            return reg.test(email);
+        }
+
+        $( "#submitButton" ).click( function () {
+            let errorMessage = '';
+            let fieldMissing = '';
+
+            if ($( "#email" ).val() == '') {
+                fieldMissing += "<br>Email";
+            }
+
+            if ($( "#phone" ).val() == '') {
+                fieldMissing += "<br>Phone";
+            }
+
+            if ($( "#password" ).val() == '') {
+                fieldMissing += "<br>Password";
+            }
+
+            if ($( "#passwordConfirm" ).val() == '') {
+                fieldMissing += "<br>Password confirm";
+            }
+
+            if (fieldMissing !== '') {
+                errorMessage += "<p>The following field(s) is missing:" + fieldMissing + "</p>";
+            }
+
+            if (!isEmail($( "#email" ).val())) {
+                errorMessage += "<p>Your email address is not valid</p>";
+            }
+
+            if (!$.isNumeric($( "#phone").val())) {
+                errorMessage += "<p>Your phone number is not numeric</p>";
+            }
+
+            if ($( "#password" ).val() !== $( "#passwordConfirm" ).val()) {
+                errorMessage += "<p>Your passwords don't match</p>";
+            }
+
+            if (errorMessage !== '') {
+                $( "#errors" ).html(errorMessage);
+            } else {
+                $( "#success" ).show();
+                $( "#errors" ).hide();
+            }
+        })
+    </script>
+</body>
+</html>
