@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reaction test</title>
+    <style type="text/css">
+        #shape {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: none;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Ваше время: <span id="timer"></span></p>
+
+    <div id="shape"></div>
+
+    <script type="text/javascript">
+
+        var start = new Date().getTime();
+
+        function makeShape() {
+            if (Math.random() > 0.5) {
+                document.getElementById("shape").style.borderRadius = "50%";
+            } else {
+                document.getElementById("shape").style.borderRadius = "initial";
+            };
+
+            var shapeTop = Math.floor(Math.random() * (document.documentElement.clientHeight -
+                document.getElementById("shape").style.height));
+            var shapeRight = Math.floor(Math.random() * (document.documentElement.clientWidth -
+                document.getElementById("shape").style.width));
+
+            document.getElementById("shape").style.top = shapeTop + "px";
+            document.getElementById("shape").style.left = shapeRight + "px";
+            document.getElementById("shape").style.backgroundColor = getRandomColor();
+            document.getElementById("shape").style.display = "block";
+            start = new Date().getTime();
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function waitingShape() {
+            setTimeout(makeShape, Math.floor(Math.random() * 2000));
+        }
+
+        waitingShape();
+
+        document.getElementById("shape").onclick = function () {
+            document.getElementById("shape").style.display = "none";
+
+            var reactionTime = (new Date().getTime() - start) / 1000;
+
+            document.getElementById("timer").innerHTML = reactionTime + "сек."
+
+            waitingShape();
+        }
+    </script>
+</body>
+</html>
