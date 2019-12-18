@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Player</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lilita+One|Roboto&display=swap" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="jquery-3.4.1.slim.js"></script>
+
+</head>
+<body>
+
+    <div id="header">
+
+        <div id="logo">
+            CodePlayer
+        </div>
+
+        <div id="buttonContainer">
+
+            <div class="toggleButton active" id="html">HTML</div>
+
+            <div class="toggleButton" id="css">CSS</div>
+
+            <div class="toggleButton" id="js">JavaScript</div>
+
+            <div class="toggleButton active" id="output">Output</div>
+
+        </div>
+
+    </div>
+
+    <div id="bodyContainer">
+
+        <textarea id="htmlPanel" class="panel"><p id="paragraph">Hello World</p></textarea>
+
+        <textarea id="cssPanel" class="panel hidden">p {color:red;}</textarea>
+
+        <textarea id="jsPanel" class="panel hidden">document.getElementById("paragraph").innerHTML = "text changed"</textarea>
+
+        <iframe id="outputPanel" class="panel"></iframe>
+
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
