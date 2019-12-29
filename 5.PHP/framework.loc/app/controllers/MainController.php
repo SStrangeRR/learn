@@ -7,18 +7,23 @@ use app\models\Main;
 class MainController extends AppController
 {
 
-    public $layout = 'main';
+    public $layout = 'default';
 
     public function indexAction()
     {
         $model = new Main;
-//        $res = $model->query("SELECT * FROM posts");
-        $posts = $model->findAll();
-//        $posts2 = $model->findOne('What is Lorem Ipsum?', 'title');
-        $data = $model->findLike('lorem', 'title', 'posts');
-        debug($data);
-        $title = 'PAGE TITLE';
-        $this->set(compact('title', 'posts'));
+
+        $posts = \R::findAll('posts');
+        $menu = $this->menu;
+
+        $this->setMeta('Главная страница', 'Описание страницы', 'Ключевые слова');
+        $meta = $this->meta;
+        $this->set(compact('posts', 'menu', 'meta'));
+    }
+
+    public function testAction()
+    {
+
     }
 
 }

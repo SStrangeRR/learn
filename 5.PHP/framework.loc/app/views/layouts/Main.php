@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Main | <?=$title ?></title>
+    <title><?= $meta['title'] ?></title>
+    <meta name="description" content="<?= $meta['desc'] ?>">
+    <meta name="keywords" content="<?= $meta['keywords'] ?>">
 
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,8 +23,8 @@
 
 <p><?= $content ?></p>
 
-<p><?= debug(\vendor\core\Db::$countSQL)?>;</p>
-<p><?= debug(\vendor\core\Db::$queries)?>;</p>
+<p><?php //debug(\vendor\core\Db::$countSQL)?>;</p>
+<p><?php //debug(\vendor\core\Db::$queries)?>;</p>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>

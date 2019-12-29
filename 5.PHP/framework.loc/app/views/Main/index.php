@@ -1,5 +1,5 @@
 <div class="container">
-    <?php if (!empty($posts)): ?>
+     <?php if (!empty($posts)): ?>
         <?php foreach ($posts as $post): ?>
             <div class="card">
                 <div class="card-header">
