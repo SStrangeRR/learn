@@ -37,6 +37,9 @@ abstract class Controller
 
     }
 
+    /**
+     *Создать вид
+     */
     public function getView()
     {
 
@@ -45,11 +48,32 @@ abstract class Controller
 
     }
 
+    /**
+     * Заполняет пользовательские данные
+     * @param $vars
+     */
     public function set($vars)
     {
 
         $this->vars = $vars;
 
+    }
+
+    /**
+     * Проверка, является ли текущий запрос Ajax
+     * @return bool
+     */
+    public function isAjax()
+    {
+
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
+
+    }
+
+    public function loadView($view, $vars = [])
+    {
+        extract($vars);
+        require APP . "/views/{$this->route['controller']}/{$view}.php";
     }
 
 }

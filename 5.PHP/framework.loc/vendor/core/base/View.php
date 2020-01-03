@@ -23,9 +23,16 @@ class View
      */
     public $layout;
 
+    /**
+     * Хранилище скриптов со страницы
+     * @var array
+     */
+    public $scripts = [];
+
+    public static $meta = ['title' => '', 'desc' => '', 'keywords' => ''];
+
     public function __construct($route, $layout = '', $view = '')
     {
-
         $this->route = $route;
         if ($layout === false) {
             $this->layout = false;
@@ -33,9 +40,12 @@ class View
             $this->layout = $layout ?: LAYOUT;
         }
         $this->view = $view;
-
     }
 
+    /**
+     * Подключить вид и шаблон согласно данных маршрута
+     * @param array $vars
+     */
     public function render($vars)
     {
         if (is_array($vars)) {
@@ -54,12 +64,44 @@ class View
         if (false !== $this->layout) {
             $file_layout = APP . "/views/layouts/{$this->layout}.php";
             if (is_file($file_layout)) {
+                $content = $this->getScripts($content);
+                $scripts = [];
+                if (!empty($this->scripts[0])) {
+                    $scripts = $this->scripts[0];
+                }
                 require_once $file_layout;
             } else {
                 echo "<p>Не найден шаблон <b>{$file_layout}</b></p>";
             }
         }
-
     }
 
+    /**
+     * возвращает страницу без js скриптов
+     * @param $content
+     * @return string|string[]
+     */
+    public function getScripts($content)
+    {
+        $pattern = "#<script.*?>.*?</script>#si";
+        preg_match_all($pattern, $content, $this->scripts);
+        if (!empty($this->scripts)) {
+            $content = preg_replace($pattern, '', $content);
+        }
+        return $content;
+    }
+
+    public static function getMeta()
+    {
+        echo '<title>' . self::$meta['title'] . '</title>
+       <meta name="description" content = "' . self::$meta['desc'] . '">
+       <meta name="keywords" content = "' . self::$meta['keywords'] . '">';
+    }
+
+    public static function setMeta($title = '', $desc = '', $keywords = '')
+    {
+        self::$meta['title'] = $title;
+        self::$meta['desc'] = $desc;
+        self::$meta['keywords'] = $keywords;
+    }
 }

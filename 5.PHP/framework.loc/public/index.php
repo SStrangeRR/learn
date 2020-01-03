@@ -1,7 +1,5 @@
 <?php
 
-error_reporting(-1);
-
 use vendor\core\Router;
 
 if (isset($_SERVER['QUERY_STRING'])) {
@@ -15,9 +13,11 @@ define('CORE', dirname(__DIR__) . '/vendor/core');
 define('ROOT', dirname(__DIR__));
 define('LIBS', dirname(__DIR__) . '/vendor/libs');
 define('APP', dirname(__DIR__) . '/app');
-define('LAYOUT', 'default');
+define('CACHE', dirname(__DIR__) . '/tmp/cache');
+define('LAYOUT', 'main');
+define('DEBUG', 1);
 
-require_once '../vendor/libs/functions.php';
+require_once LIBS . '/functions.php';
 
 spl_autoload_register(function ($class) {
     $file = ROOT . '/' . str_replace('\\', '/', $class) . '.php';
@@ -26,7 +26,10 @@ spl_autoload_register(function ($class) {
     }
 });
 
+new \vendor\core\App();
+
 // custom routes
+Router::add('^page/(?P<action>[a-z-]+)/(?P<alias>[a-z-]+)$', ['controller' => 'Page']);
 Router::add('^page/(?P<alias>[a-z-]+)?$', ['controller' => 'Page', 'action' => 'view']);
 
 // default routes
@@ -35,5 +38,3 @@ Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 
 Router::dispatch($query);
 
-$test = \vendor\core\Registry::instance();
-$test->getList();

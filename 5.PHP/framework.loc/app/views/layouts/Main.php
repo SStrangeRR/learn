@@ -8,9 +8,8 @@
     <title><?= $meta['title'] ?></title>
     <meta name="description" content="<?= $meta['desc'] ?>">
     <meta name="keywords" content="<?= $meta['keywords'] ?>">
-
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/public/css/main.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,12 +18,13 @@
     <![endif]-->
 </head>
 <body>
-<h1>MAIN</h1>
+<div class="container">
 
-<p><?= $content ?></p>
+    <h1>Main Page</h1>
 
-<p><?php //debug(\vendor\core\Db::$countSQL)?>;</p>
-<p><?php //debug(\vendor\core\Db::$queries)?>;</p>
+    <?= $content ?>
+
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>

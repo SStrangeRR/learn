@@ -8,7 +8,7 @@ class PageController extends AppController
     public function viewAction()
     {
         $menu = $this->menu;
-        $title = 'PAGE TITLE';
+        $title = 'Страница';
         $this->set(compact('title', 'menu'));
     }
 

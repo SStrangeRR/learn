@@ -4,9 +4,9 @@ namespace vendor\core;
 
 class Db
 {
+    use TSingletone;
 
     protected $pdo;
-    protected static $instance;
     public static $countSQL = 0;
     public static $queries = [];
 
@@ -18,16 +18,6 @@ class Db
 
         \R::setup($db['dsn'], $db['user'], $db['pass']);
         \R::freeze(true);
-
-    }
-
-    public static function instance()
-    {
-
-        if (self::$instance === null) {
-            self::$instance = new self;
-        }
-        return self::$instance;
 
     }
 

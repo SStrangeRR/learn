@@ -1,0 +1,20 @@
+[2020-01-03 16:03:39] Текст ошибки: include(404.html): failed to open stream: No such file or directory | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\core\Router.php | Строка: 98
+ -------------------------------------------------------- 
+[2020-01-03 16:04:02] Текст ошибки: syntax error, unexpected '$posts' (T_VARIABLE) | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\app\controllers\MainController.php | Строка: 21
+ -------------------------------------------------------- 
+[2020-01-03 16:04:02] Текст ошибки: include(404.html): failed to open stream: No such file or directory | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\core\Router.php | Строка: 98
+ -------------------------------------------------------- 
+[2020-01-03 16:05:01] Текст ошибки: include(404.html): failed to open stream: No such file or directory | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\core\Router.php | Строка: 98
+ -------------------------------------------------------- 
+[2020-01-03 16:20:21] Текст ошибки: include(404.html): failed to open stream: No such file or directory | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\core\Router.php | Строка: 98
+ -------------------------------------------------------- 
+[2020-01-03 16:33:33] Текст ошибки: Страница не найдена | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\core\Router.php | Строка: 101
+ -------------------------------------------------------- 
+[2020-01-03 21:58:38] Текст ошибки: Страница не найдена | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\core\Router.php | Строка: 97
+ -------------------------------------------------------- 
+[2020-01-04 00:51:38] Текст ошибки: Страница не найдена | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\core\Router.php | Строка: 97
+ -------------------------------------------------------- 
+[2020-01-04 01:15:50] Текст ошибки: Cannot use object of type stdClass as array | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\libs\Cache.php | Строка: 30
+ -------------------------------------------------------- 
+[2020-01-04 01:17:01] Текст ошибки: Cannot use object of type stdClass as array | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\vendor\libs\Cache.php | Строка: 30
+ -------------------------------------------------------- 

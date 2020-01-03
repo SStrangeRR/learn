@@ -5,11 +5,19 @@ namespace app\controllers;
 class AppController extends \vendor\core\base\Controller
 {
 
+    /**
+     * @var array Меню для страницы
+     */
     public $menu;
+
+    /**
+     * @var array Массив мета-тегов
+     */
     public $meta = [];
 
     /**
      * AppController constructor.
+     * @param string $route Маршрут
      */
     public function __construct($route)
     {
@@ -18,6 +26,11 @@ class AppController extends \vendor\core\base\Controller
         $this->menu = \R::findAll('category');
     }
 
+    /**
+     * @param string $title Заголовок страницы
+     * @param string $desc мета описание
+     * @param string $keywords мета ключевые слова
+     */
     protected function setMeta($title = '', $desc = '', $keywords = '')
     {
         $this->meta['title'] = $title;
