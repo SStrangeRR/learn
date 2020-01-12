@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
-class AppController extends \vendor\core\base\Controller
+use framework\core\base\Controller;
+
+class AppController extends Controller
 {
 
     /**
@@ -36,6 +38,5 @@ class AppController extends \vendor\core\base\Controller
         $this->meta['title'] = $title;
         $this->meta['desc'] = $desc;
         $this->meta['keywords'] = $keywords;
-
     }
 }

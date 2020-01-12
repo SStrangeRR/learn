@@ -1,1 +1,1 @@
-view контент
+About page

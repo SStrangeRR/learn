@@ -3,8 +3,9 @@
 namespace app\controllers;
 
 use app\models\Main;
-use vendor\core\App;
-use vendor\core\base\View;
+use framework\core\App;
+use framework\core\base\View;
+use framework\libs\Pagination;
 
 class MainController extends AppController
 {
@@ -12,18 +13,23 @@ class MainController extends AppController
     /**
      * @var string Шаблон по умолчанию
      */
-    public $layout = 'default';
+    public $layout = '';
 
     public function indexAction()
     {
-
         $model = new Main;
-        $posts = \R::findAll('posts');
-        $menu = $this->menu;
-        $title = 'PAGE TITLE';
-        View::setMeta('Главная страница', 'Описание страницы', 'Ключевые слова');
-        $this->set(compact('title', 'posts', 'menu'));
 
+        $total = \R::count('posts');
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perpage = 2;
+
+        $pagination = new Pagination($page, $perpage, $total);
+        $start = $pagination->getStart();
+
+        $posts = \R::findAll('posts', "LIMIT $start, $perpage");
+
+        View::setMeta('Blog:: Главная страница', 'Описание страницы', 'Ключевые слова');
+        $this->set(compact('posts', 'pagination'));
     }
 
     public function testAction()
@@ -35,7 +41,6 @@ class MainController extends AppController
             die;
         }
         echo 222;
-
     }
 
 }

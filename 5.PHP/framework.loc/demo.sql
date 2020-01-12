@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 04, 2020 at 01:21 AM
+-- Generation Time: Jan 13, 2020 at 01:13 AM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.9
 
@@ -126,6 +126,28 @@ INSERT INTO `posts` (`id`, `category_id`, `title`, `excerpt`, `text`, `keywords`
 (7, 4, 'Тестовый пост', 'lorem ipsum...', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia optio odit unde quam dolore vel vitae in! Obcaecati velit rem alias exercitationem error eveniet autem, voluptatibus esse ab placeat blanditiis omnis! Necessitatibus, officia velit, laboriosam deleniti quis aperiam? Nesciunt inventore consequuntur dolores, excepturi magnam illum modi unde quis sit deserunt.</p>', '', ''),
 (8, 4, 'Тестовый пост 2', 'Краткое описание статьи \"Тестовый пост\"', '42342', '', '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `role` enum('user','admin') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `email`, `name`, `role`) VALUES
+(3, 'SStrangeRR', '$2y$10$0cgtru2lgDKJJTvi9lN3deTb63/uQrs9Fj1FtFLelD8/DTDgTBI4a', '123@h1.ru', 'Alex', 'user');
+
 --
 -- Indexes for dumped tables
 --
@@ -150,6 +172,14 @@ ALTER TABLE `posts`
   ADD KEY `index_foreignkey_posts_category` (`category_id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login` (`login`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -170,6 +200,12 @@ ALTER TABLE `category`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

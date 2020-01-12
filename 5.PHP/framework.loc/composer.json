@@ -1,0 +1,15 @@
+{
+    "name": "sstrangerr/framework.loc",
+    "description": "MVC framework learn",
+    "require": {
+        "monolog/monolog": "^2.0",
+        "phpmailer/phpmailer": "^6.1",
+        "vlucas/valitron": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "framework\\": "vendor/framework",
+            "app\\": "app"
+        }
+    }
+}

@@ -2,10 +2,10 @@
 
 namespace app\models;
 
-class Main extends \vendor\core\base\Model
-{
+use framework\core\base\Model;
 
+class Main extends Model
+{
     public $table = 'posts';
     public $pk = 'id';
-
 }

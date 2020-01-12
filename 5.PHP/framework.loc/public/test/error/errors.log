@@ -1,0 +1,20 @@
+[2020-01-03 02:49:44] Текст ошибки: Undefined variable: test | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\public\test\error\index.php | Строка: 74
+ -------------------------------------------------------- 
+[2020-01-03 02:51:12] Текст ошибки: Undefined variable: test | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\public\test\error\index.php | Строка: 74
+ -------------------------------------------------------- 
+[2020-01-03 02:53:21] Текст ошибки: Uncaught TypeError: Argument 1 passed to errorHandler::exceptionHandler() must be an instance of Exception, instance of Error given in D:\Learn\OpenServer\OSPanel\domains\framework.loc\public\test\error\index.php:57
+Stack trace:
+#0 [internal function]: errorHandler->exceptionHandler(Object(Error))
+#1 {main}
+  thrown | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\public\test\error\index.php | Строка: 57
+ -------------------------------------------------------- 
+[2020-01-03 02:57:38] Текст ошибки: Uncaught TypeError: Argument 1 passed to errorHandler::exceptionHandler() must be an instance of Exception, instance of Error given in D:\Learn\OpenServer\OSPanel\domains\framework.loc\public\test\error\index.php:57
+Stack trace:
+#0 [internal function]: errorHandler->exceptionHandler(Object(Error))
+#1 {main}
+  thrown | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\public\test\error\index.php | Строка: 57
+ -------------------------------------------------------- 
+[2020-01-03 02:58:12] Текст ошибки: Call to undefined function test() | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\public\test\error\index.php | Строка: 77
+ -------------------------------------------------------- 
+[2020-01-03 02:58:39] Текст ошибки: Упс, Ошибка | Файл: D:\Learn\OpenServer\OSPanel\domains\framework.loc\public\test\error\index.php | Строка: 79
+ -------------------------------------------------------- 
