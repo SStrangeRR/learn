@@ -1,0 +1,13 @@
+{
+    "name": "sstrangerr/blog",
+    "description": "MVC blog learn",
+    "require": {
+        "vlucas/valitron": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "framework\\": "vendor/base",
+            "app\\": "application"
+        }
+    }
+}
