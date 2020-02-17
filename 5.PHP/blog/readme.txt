@@ -1,3 +1,4 @@
+Basic MVC Blog
 database name => blog
 database connect
     'user' => 'root',

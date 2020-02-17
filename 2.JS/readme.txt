@@ -1,0 +1,1 @@
+Reaction test - JS application.
